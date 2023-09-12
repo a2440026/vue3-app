@@ -6,13 +6,51 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "npm run lint:script && npm run lint:style",
+    "lint:script": "eslint --ext .js,.ts,.vue --fix --quiet ./src",
+    "lint:style": "stylelint --fix \"src/**/*.{css,less,vue}\"",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "**/*.{vue,js,ts}": [
+      "eslint --fix"
+    ],
+    "**/*.{vue,css,less}": [
+      "stylelint --fix"
+    ]
   },
   "dependencies": {
+    "less": "^4.2.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@types/node": "^20.6.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
     "@vitejs/plugin-vue": "^4.2.3",
+    "autoprefixer": "^10.4.15",
+    "commitlint": "^17.7.1",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "postcss-html": "^1.5.0",
+    "postcss-less": "^6.0.0",
+    "prettier": "^3.0.3",
+    "stylelint": "^15.10.3",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-recess-order": "^4.3.0",
+    "stylelint-config-recommended-vue": "^1.5.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard-less": "^2.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-prettier": "^4.0.2",
     "vite": "^4.4.5"
   }
 }

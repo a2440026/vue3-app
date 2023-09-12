@@ -1,0 +1,7 @@
+// .stylelintignore
+
+node_modules
+dist
+public
+publish
+pnpm-lock.yaml
