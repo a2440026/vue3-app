@@ -1,37 +1,20 @@
-// .eslintrc.cjs
+/* eslint-env node */
+require('@rushstack/eslint-patch/modern-module-resolution');
+
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true
-  },
+  root: true,
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
     'plugin:vue/vue3-essential',
-    'prettier',
-    'plugin:prettier/recommended'
-  ],
-  overrides: [
-    {
-      env: {
-        node: true
-      },
-      files: ['.eslintrc.{js,cjs}'],
-      parserOptions: {
-        sourceType: 'script'
-      }
-    }
+    'eslint:recommended',
+    '@vue/eslint-config-prettier/skip-formatting'
   ],
   parserOptions: {
-    ecmaVersion: 'latest',
-    parser: '@typescript-eslint/parser',
-    sourceType: 'module'
+    ecmaVersion: 'latest'
   },
-  plugins: ['@typescript-eslint', 'vue', 'prettier'],
   rules: {
-    'prettier/prettier': 'error',
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
-    semi: ['error', 'always']
+    semi: ['error', 'always'],
+    'eqeqeq': ['error', 'always']
   }
 };
